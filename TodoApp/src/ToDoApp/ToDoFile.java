@@ -26,11 +26,20 @@ public class ToDoFile {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Unable to read file: ToDoList.txt");;
+            System.out.println("Unable to read file: ToDoList.txt");
         }
     }
 
+    public void addTask() {
+        Path filePath = Paths.get(this.path);
+        String addItem = "- feed monkey";
+        try {
+           Files.write(filePath, addItem.getBytes());
 
+        } catch (IOException e) {
+            System.out.println("Unable to add: no task provided");
+        }
+    }
 }
 
 
