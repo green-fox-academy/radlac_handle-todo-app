@@ -18,8 +18,12 @@ public class ToDoFile {
         Path filePath = Paths.get(this.path);
         try {
             List<String> fileLines = Files.readAllLines(filePath, UTF_8);
-            for (int i = 0; i < fileLines.size(); i++) {
-                System.out.println(fileLines.get(i));
+            if (fileLines.isEmpty()) {
+                System.out.println("No todos for today! :)");
+            } else {
+                for (int i = 0; i < fileLines.size(); i++) {
+                    System.out.println(fileLines.get(i));
+                }
             }
         } catch (IOException e) {
             System.out.println("Unable to read file: ToDoList.txt");;
