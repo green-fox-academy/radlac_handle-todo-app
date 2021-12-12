@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.List;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -26,15 +27,15 @@ public class ToDoFile {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Unable to read file: ToDoList.txt");
+            System.out.println("Unable to read file: ToDoList");
         }
     }
 
     public void addTask() {
         Path filePath = Paths.get(this.path);
-        String addItem = "- feed monkey";
+        String addItem = "4 - feed monkey";
         try {
-           Files.write(filePath, addItem.getBytes());
+           Files.write(filePath, addItem.getBytes(), StandardOpenOption.APPEND);
 
         } catch (IOException e) {
             System.out.println("Unable to add: no task provided");

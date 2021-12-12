@@ -13,7 +13,7 @@ public class Main {
             System.out.println("\t -a  Adds a new task");
             System.out.println("\t -r  Removes an task");
             System.out.println("\t -c  Completes an task");
-        }else if (args[0].equals("-a")) {
+        } else if (args[0].equals("-a")) {
             toDoFile.addTask();
         } else if (args[0].equals("-l")) {
             toDoFile.printToDoList();
