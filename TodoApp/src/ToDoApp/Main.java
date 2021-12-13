@@ -11,6 +11,13 @@ public class Main {
             toDoFile.addTask();
         } else if (args[0].equals("-l")) {
             toDoFile.printToDoList();
-        }
+        } else if (args[0] != "-l")
+            if (args[0] != "-a")
+                if (args[0] != "-r")
+                    if (args[0] != "-c") {
+                        System.out.println("Unsupported argument");
+                        System.out.println();
+                        toDoFile.printHelp();
+                    }
     }
 }
