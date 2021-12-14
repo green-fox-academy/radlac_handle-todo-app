@@ -55,17 +55,15 @@ public class ToDoFile {
     }
 
     public void removeTask() {
-        List<String> lines;
         Path filePath = Paths.get(this.path);
         try {
-            lines = Files.readAllLines(filePath);
-            lines.remove(1);
-            Files.write(filePath, lines);
+            List<String> fileLines = Files.readAllLines(filePath);
+            fileLines.remove(1);
+            Files.write(filePath, fileLines);
         } catch (Exception e) {
             System.out.println("Unable to remove task provided");
         }
     }
-
 }
 
 
