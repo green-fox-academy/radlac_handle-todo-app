@@ -49,6 +49,8 @@ public class ToDoFile {
         try {
             Files.write(filePath, addItem.getBytes(), StandardOpenOption.APPEND);
 
+        } catch (IOException e) {
+            System.out.println("Unable to read file: ToDoList");
         } catch (Exception e) {
             System.out.println("Unable to add: no task provided");
         }
@@ -57,14 +59,23 @@ public class ToDoFile {
     public void removeTask() {
         Path filePath = Paths.get(this.path);
         try {
-            List<String> fileLines = Files.readAllLines(filePath);
+            List<String> fileLines = Files.readAllLines(filePath, UTF_8);
             fileLines.remove(1);
             Files.write(filePath, fileLines);
+
+        } catch (IOException e) {
+            System.out.println("Unable to read file: ToDoList");
         } catch (Exception e) {
             System.out.println("Unable to remove task provided");
         }
     }
 }
+
+
+
+
+
+
 
 
 
