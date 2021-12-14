@@ -56,11 +56,11 @@ public class ToDoFile {
         }
     }
 
-    public void removeTask() {
+    public void removeTask(int index) {
         Path filePath = Paths.get(this.path);
         try {
             List<String> fileLines = Files.readAllLines(filePath, UTF_8);
-            fileLines.remove(1);
+            fileLines.remove (index);
             Files.write(filePath, fileLines);
 
         } catch (IOException e) {
