@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.List;
+
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class ToDoFile {
@@ -13,7 +14,7 @@ public class ToDoFile {
     String path;
 
     public ToDoFile(String path) {
-    this.path = path;
+        this.path = path;
     }
 
     public void printHelp() {
@@ -46,12 +47,25 @@ public class ToDoFile {
         Path filePath = Paths.get(this.path);
         String addItem = "4 - feed monkey";
         try {
-           Files.write(filePath, addItem.getBytes(), StandardOpenOption.APPEND);
+            Files.write(filePath, addItem.getBytes(), StandardOpenOption.APPEND);
 
         } catch (IOException e) {
             System.out.println("Unable to add: no task provided");
         }
     }
+
+    public void removeTask() {
+        List<String> lines;
+        Path filePath = Paths.get(this.path);
+        try {
+            lines = Files.readAllLines(filePath);
+            lines.remove(1);
+            Files.write(filePath, lines);
+        } catch (IOException e) {
+            System.out.println("Unable to remove task provided");
+        }
+    }
+
 }
 
 
