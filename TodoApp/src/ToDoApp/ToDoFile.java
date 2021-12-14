@@ -49,7 +49,7 @@ public class ToDoFile {
         try {
             Files.write(filePath, addItem.getBytes(), StandardOpenOption.APPEND);
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println("Unable to add: no task provided");
         }
     }
@@ -61,7 +61,7 @@ public class ToDoFile {
             lines = Files.readAllLines(filePath);
             lines.remove(1);
             Files.write(filePath, lines);
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println("Unable to remove task provided");
         }
     }
