@@ -4,15 +4,18 @@ public class Main {
     public static void main(String[] args) {
 
         ToDoFile toDoFile = new ToDoFile("src/ToDoApp/ToDoList");
-        int index = Integer.parseInt(args[1])-1;
+
+
         if (args.length == 0) {
             toDoFile.printHelp();
         } else if (args[0].equals("-a")) {
-            toDoFile.addTask();
+            String item = args[1];
+            toDoFile.addTask(item);
         } else if (args[0].equals("-l")) {
             toDoFile.printToDoList();
         } else if (args[0].equals("-r")) {
-            toDoFile.removeTask(index);
+            int index = Integer.parseInt(args[1])-1;
+            toDoFile.removeTask (index);
         } else if (args[0] != "-l")
             if (args[0] != "-a")
                 if (args[0] != "-r")

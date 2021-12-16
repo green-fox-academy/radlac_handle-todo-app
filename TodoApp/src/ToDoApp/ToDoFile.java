@@ -35,7 +35,7 @@ public class ToDoFile {
                 System.out.println("No todos for today! :)");
             } else {
                 for (int i = 0; i < fileLines.size(); i++) {
-                    System.out.println(fileLines.get(i));
+                    System.out.println(i + 1 + " - " + fileLines.get(i));
                 }
             }
         } catch (IOException e) {
@@ -43,12 +43,11 @@ public class ToDoFile {
         }
     }
 
-    public void addTask() {
+    public void addTask(String addItem) {
         Path filePath = Paths.get(this.path);
-        String addItem = "4 - feed monkey";
-        try {
-            Files.write(filePath, addItem.getBytes(), StandardOpenOption.APPEND);
 
+        try {
+            Files.writeString(filePath, addItem + "\n", StandardOpenOption.APPEND);
         } catch (IOException e) {
             System.out.println("Unable to read file: ToDoList");
         } catch (Exception e) {
@@ -60,7 +59,7 @@ public class ToDoFile {
         Path filePath = Paths.get(this.path);
         try {
             List<String> fileLines = Files.readAllLines(filePath, UTF_8);
-            fileLines.remove (index);
+            fileLines.remove(index);
             Files.write(filePath, fileLines);
 
         } catch (IOException e) {
