@@ -45,7 +45,6 @@ public class ToDoFile {
 
     public void addTask(String addItem) {
         Path filePath = Paths.get(this.path);
-
         try {
             Files.writeString(filePath, addItem + "\n", StandardOpenOption.APPEND);
         } catch (IOException e) {
@@ -61,7 +60,6 @@ public class ToDoFile {
             List<String> fileLines = Files.readAllLines(filePath, UTF_8);
             fileLines.remove(index);
             Files.write(filePath, fileLines);
-
         } catch (IOException e) {
             System.out.println("Unable to read file: ToDoList");
         } catch (Exception e) {
