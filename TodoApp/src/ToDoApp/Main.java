@@ -14,8 +14,12 @@ public class Main {
         } else if (args[0].equals("-l")) {
             toDoFile.printToDoList();
         } else if (args[0].equals("-r")) {
-            int index = Integer.parseInt(args[1])-1;
-            toDoFile.removeTask (index);
+            try {
+                int index = Integer.parseInt(args[1]) - 1;
+                toDoFile.removeTask(index);
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("Unable to remove: no index provided");
+            }
         } else if (args[0] != "-l")
             if (args[0] != "-a")
                 if (args[0] != "-r")
@@ -26,3 +30,4 @@ public class Main {
                     }
     }
 }
+

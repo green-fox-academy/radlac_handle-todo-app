@@ -54,6 +54,7 @@ public class ToDoFile {
         }
     }
 
+
     public void removeTask(int index) {
         Path filePath = Paths.get(this.path);
         try {
@@ -62,13 +63,10 @@ public class ToDoFile {
             Files.write(filePath, fileLines);
         } catch (IOException e) {
             System.out.println("Unable to read file: ToDoList");
-        } catch (Exception e) {
-            System.out.println("Unable to remove task provided");
+
         }
     }
 }
-
-
 
 
 
