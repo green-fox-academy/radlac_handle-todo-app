@@ -49,8 +49,6 @@ public class ToDoFile {
             Files.writeString(filePath, addItem + "\n", StandardOpenOption.APPEND);
         } catch (IOException e) {
             System.out.println("Unable to read file: ToDoList");
-        } catch (Exception e) {
-            System.out.println("Unable to add: no task provided");
         }
     }
 

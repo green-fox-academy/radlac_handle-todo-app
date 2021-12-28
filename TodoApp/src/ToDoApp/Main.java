@@ -9,8 +9,12 @@ public class Main {
         if (args.length == 0) {
             toDoFile.printHelp();
         } else if (args[0].equals("-a")) {
-            String item = args[1];
-            toDoFile.addTask(item);
+            try {
+                String item = args[1];
+                toDoFile.addTask(item);
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("Unable to add: no task provided");
+            }
         } else if (args[0].equals("-l")) {
             toDoFile.printToDoList();
         } else if (args[0].equals("-r")) {
